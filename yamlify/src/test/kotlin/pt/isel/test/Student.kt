@@ -1,12 +1,12 @@
 package pt.isel.test
 
-class Student(val name: String, val nr: Int, val birth: Int, val from: String) {
+class Student(val name: String, val nr: Int, val from: String) {
     lateinit var address: Address
     lateinit var grades: List<Grade>
-    constructor(name: String, nr: Int, birth: Int, from: String, address: Address) : this(name, nr, birth, from) {
+    constructor(name: String, nr: Int, from: String, address: Address) : this(name, nr, from) {
         this.address = address
     }
-    constructor(name: String, nr: Int, birth: Int, from: String, address: Address, grades: List<Grade>) : this(name, nr, birth, from, address) {
+    constructor(name: String, nr: Int, from: String, address: Address, grades: List<Grade>) : this(name, nr, from, address) {
         this.grades = grades
     }
 }
