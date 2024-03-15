@@ -14,7 +14,7 @@ class YamlParserReflectTest {
                 name: Maria Candida
                 from: Oleiros"""
         assertThrows<IllegalArgumentException> {
-            yamlParserReflect(Student::class).parseObject(yaml.reader())
+            YamlParserReflect.yamlParser(Student::class).parseObject(yaml.reader())
         }
     }
     @Test fun parseStudent() {
@@ -22,7 +22,7 @@ class YamlParserReflectTest {
                 name: Maria Candida
                 nr: 873435
                 from: Oleiros"""
-        val st = yamlParserReflect(Student::class).parseObject(yaml.reader())
+        val st = YamlParserReflect.yamlParser(Student::class).parseObject(yaml.reader())
         assertEquals("Maria Candida", st.name)
         assertEquals(873435, st.nr)
         assertEquals("Oleiros", st.from)
@@ -36,7 +36,7 @@ class YamlParserReflectTest {
                   nr: 78
                   city: Lisbon
                 from: Oleiros"""
-        val st = yamlParserReflect(Student::class).parseObject(yaml.reader())
+        val st = YamlParserReflect.yamlParser(Student::class).parseObject(yaml.reader())
         assertEquals("Maria Candida", st.name)
         assertEquals(873435, st.nr)
         assertEquals("Oleiros", st.from)
@@ -51,7 +51,7 @@ class YamlParserReflectTest {
             - Maria Carmen
             - Lisboa Capital
         """
-        val seq = yamlParserReflect(String::class)
+        val seq = YamlParserReflect.yamlParser(String::class)
             .parseList(yaml.reader())
             .iterator()
         assertEquals("Ola", seq.next())
@@ -66,7 +66,7 @@ class YamlParserReflectTest {
             - 2
             - 3
         """
-        val seq = yamlParserReflect(Int::class)
+        val seq = YamlParserReflect.yamlParser(Int::class)
             .parseList(yaml.reader())
             .iterator()
         assertEquals(1, seq.next())
@@ -85,7 +85,7 @@ class YamlParserReflectTest {
               nr: 1214398
               from: Tamega
         """
-        val seq = yamlParserReflect(Student::class)
+        val seq = YamlParserReflect.yamlParser(Student::class)
             .parseList(yaml.reader())
             .iterator()
         val st1 = seq.next()
@@ -117,7 +117,7 @@ class YamlParserReflectTest {
                 city: Porto
               from: Tamega
         """
-        val seq = yamlParserReflect(Student::class)
+        val seq = YamlParserReflect.yamlParser(Student::class)
             .parseList(yaml.reader())
             .iterator()
         val st1 = seq.next()
@@ -137,7 +137,7 @@ class YamlParserReflectTest {
         assertFalse { seq.hasNext() }
     }
     @Test fun parseSequenceOfStudentsWithAddressesAndGrades() {
-        val seq = yamlParserReflect(Student::class)
+        val seq = YamlParserReflect.yamlParser(Student::class)
             .parseList(yamlSequenceOfStudents.reader())
             .iterator()
         assertStudentsInSequence(seq)
@@ -147,7 +147,7 @@ class YamlParserReflectTest {
           id: i45
           students: $yamlSequenceOfStudents
         """.trimIndent()
-        val cr = yamlParserReflect(Classroom::class)
+        val cr = YamlParserReflect.yamlParser(Classroom::class)
             .parseObject(yaml.reader())
         assertEquals("i45", cr.id)
         assertStudentsInSequence(cr.students.iterator())

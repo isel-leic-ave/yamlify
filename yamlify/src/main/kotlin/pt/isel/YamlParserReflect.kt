@@ -1,25 +1,33 @@
 package pt.isel
 
-import java.io.Reader
 import kotlin.reflect.KClass
-import kotlin.reflect.KParameter
 
-private val yamlParsers: MutableMap<KClass<*>, YamlParserReflect<*>> = mutableMapOf()
-/**
- * Creates a YamlParser for the given type using reflection if it does not already exist.
- * Keep it in an internal cache.
- */
-fun <T : Any> yamlParserReflect(type: KClass<T>) : YamlParserReflect<T> {
-    return yamlParsers.getOrPut(type) { YamlParserReflect(type) } as YamlParserReflect<T>
-}
 /**
  * A YamlParser that uses reflection to parse objects.
  */
-class YamlParserReflect<T : Any>(private val type: KClass<T>) : YamlParser<T> {
-    override fun parseObject(yaml: Reader) : T {
-        TODO()
+class YamlParserReflect<T : Any>(type: KClass<T>) : AbstractYamlParser<T>(type) {
+    companion object {
+        /**
+         *Iinternal cache of YamlParserReflect instances.
+         */
+        private val yamlParsers: MutableMap<KClass<*>, YamlParserReflect<*>> = mutableMapOf()
+        /**
+         * Creates a YamlParser for the given type using reflection if it does not already exist.
+         * Keep it in an internal cache of YamlParserReflect instances.
+         */
+        fun <T : Any> yamlParser(type: KClass<T>): AbstractYamlParser<T> {
+            return yamlParsers.getOrPut(type) { YamlParserReflect(type) } as YamlParserReflect<T>
+        }
     }
-    override fun parseList(yaml: Reader): List<T> {
-        TODO()
+    /**
+     * Used to get a parser for other Type using the same parsing approach.
+     */
+    override fun <T : Any> yamlParser(type: KClass<T>) = YamlParserReflect.yamlParser(type)
+    /**
+     * Creates a new instance of T through the first constructor
+     * that has all the arguments in the map.
+     */
+    override fun newInstance(args: Map<String, Any>): T {
+        TODO("Not yet implemented")
     }
 }
