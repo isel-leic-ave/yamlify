@@ -5,3 +5,4 @@ plugins {
 
 rootProject.name = "yamlify"
 include("yamlify")
+include("yamlify-bench")
