@@ -23,7 +23,13 @@ of the YAML parser.
 
 ### 1.1
 
-Implement the `YamlParserReflect` class provided in this project to ensure it passes the provided unit tests.
+You are required to implement the YAML parsing algorithm in the missing methods
+of the `AbstractYamlParser` class. 
+Additionally, you need to implement the `newInstance` method of the
+`YamlParserReflect` class. 
+It's important to note that methods of `AbstractYamlParser` will invoke the hook
+method `newInstance`, passing the necessary `Map<String, Any>`.
+Ensure that your implementation successfully passes the provided unit tests.
 
 ### 1.2
 
@@ -62,3 +68,24 @@ returning an `Object`.
 Validate your implementation with the provided example of the `birth` property
 and create another example to showcase your approach with a different property
 type.
+
+### Usage of JMH
+
+To run the benchmark on you local machine just run:
+
+```
+./gradlew jmhJar
+```
+
+And then:
+
+```
+java -jar yamlaif-bench/build/libs/yamlify-bench-jmh.jar -i 4 -wi 4 -f 1 -r 2 -w 2 -tu ms
+```
+
+* `-i`  4 iterations
+* `-wi` 4 warmup iterations
+* `-f`  1 fork
+* `-r`  2 run each iteration for 2 seconds
+* `-w`  2 run each warmup iteration for 2 seconds.
+* `-tu` ms time unit milliseconds 
