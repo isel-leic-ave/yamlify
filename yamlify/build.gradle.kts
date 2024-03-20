@@ -5,7 +5,16 @@ plugins {
     // Apply the java-library plugin for API and implementation separation.
     `java-library`
 }
-
+tasks.compileKotlin {
+    kotlinOptions {
+        javaParameters = true
+    }
+}
+tasks.compileTestKotlin {
+    kotlinOptions {
+        javaParameters = true
+    }
+}
 repositories {
     // Use Maven Central for resolving dependencies.
     mavenCentral()
@@ -13,6 +22,7 @@ repositories {
 
 dependencies {
     implementation(kotlin("reflect"))
+    implementation("org.cojen:cojen-maker:2.5.5")
 
     // Use the Kotlin JUnit 5 integration.
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
