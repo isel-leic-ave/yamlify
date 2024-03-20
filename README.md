@@ -116,7 +116,7 @@ The following Figure presents an example of the use of `YamlParserReflect` from
 Assignment 1, where each instance of `YamlParserReflect` is associated with an
 instance of `KClass` to parse a specific domain class.
 Now, in Assignment 2, you will have a different YAML parser class (e.g.,
-`YamlParserStudent4`, `YamlParserAddress`, etc.) for each domain class, rather
+`YamlParserStudent4`, `YamlParserAddress3`, etc.) for each domain class, rather
 than using the same type of parser for all classes (i.e. `YamlParserReflect`).
 These parsers are generated at runtime (i.e., dynamically) with the support of
 the Cojen Maker.
