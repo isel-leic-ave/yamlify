@@ -1,33 +1,26 @@
 package pt.isel
 
-import org.junit.jupiter.api.assertThrows
 import pt.isel.test.Classroom
 import pt.isel.test.Student
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFalse
 
-class YamlParserReflectTest {
+class YamlParserCojenTest {
 
-    @Test fun parseStudentWithMissingProperties() {
-        val yaml = """
-                name: Maria Candida
-                from: Oleiros"""
-        assertThrows<IllegalArgumentException> {
-            YamlParserReflect.yamlParser(Student::class).parseObject(yaml.reader())
-        }
-    }
-    @Test fun parseStudent() {
+    @Test
+    fun parseStudent() {
         val yaml = """
                 name: Maria Candida
                 nr: 873435
                 from: Oleiros"""
-        val st = YamlParserReflect.yamlParser(Student::class).parseObject(yaml.reader())
+        val st = YamlParserCojen.yamlParser(Student::class, 3).parseObject(yaml.reader())
         assertEquals("Maria Candida", st.name)
         assertEquals(873435, st.nr)
         assertEquals("Oleiros", st.from)
     }
-    @Test fun parseStudentWithAddress() {
+    @Test
+    fun parseStudentWithAddress() {
         val yaml = """
                 name: Maria Candida
                 nr: 873435
@@ -36,7 +29,7 @@ class YamlParserReflectTest {
                   nr: 78
                   city: Lisbon
                 from: Oleiros"""
-        val st = YamlParserReflect.yamlParser(Student::class).parseObject(yaml.reader())
+        val st = YamlParserCojen.yamlParser(Student::class, 4).parseObject(yaml.reader())
         assertEquals("Maria Candida", st.name)
         assertEquals(873435, st.nr)
         assertEquals("Oleiros", st.from)
@@ -45,13 +38,14 @@ class YamlParserReflectTest {
         assertEquals("Lisbon", st.address?.city)
     }
 
-    @Test fun parseSequenceOfStrings() {
+    @Test
+    fun parseSequenceOfStrings() {
         val yaml = """
             - Ola
             - Maria Carmen
             - Lisboa Capital
         """
-        val seq = YamlParserReflect.yamlParser(String::class)
+        val seq = YamlParserCojen.yamlParser(String::class)
             .parseList(yaml.reader())
             .iterator()
         assertEquals("Ola", seq.next())
@@ -60,13 +54,14 @@ class YamlParserReflectTest {
         assertFalse { seq.hasNext() }
     }
 
-    @Test fun parseSequenceOfInts() {
+    @Test
+    fun parseSequenceOfInts() {
         val yaml = """
             - 1
             - 2
             - 3
         """
-        val seq = YamlParserReflect.yamlParser(Int::class)
+        val seq = YamlParserCojen.yamlParser(Int::class)
             .parseList(yaml.reader())
             .iterator()
         assertEquals(1, seq.next())
@@ -74,7 +69,8 @@ class YamlParserReflectTest {
         assertEquals(3, seq.next())
         assertFalse { seq.hasNext() }
     }
-    @Test fun parseSequenceOfStudents(){
+    @Test
+    fun parseSequenceOfStudents(){
         val yaml = """
             -
               name: Maria Candida
@@ -85,7 +81,7 @@ class YamlParserReflectTest {
               nr: 1214398
               from: Tamega
         """
-        val seq = YamlParserReflect.yamlParser(Student::class)
+        val seq = YamlParserCojen.yamlParser(Student::class, 3)
             .parseList(yaml.reader())
             .iterator()
         val st1 = seq.next()
@@ -98,7 +94,8 @@ class YamlParserReflectTest {
         assertEquals("Tamega", st2.from)
         assertFalse { seq.hasNext() }
     }
-    @Test fun parseSequenceOfStudentsWithAddresses() {
+    @Test
+    fun parseSequenceOfStudentsWithAddresses() {
         val yaml = """
             -
               name: Maria Candida
@@ -117,7 +114,7 @@ class YamlParserReflectTest {
                 city: Porto
               from: Tamega
         """
-        val seq = YamlParserReflect.yamlParser(Student::class)
+        val seq = YamlParserCojen.yamlParser(Student::class, 4)
             .parseList(yaml.reader())
             .iterator()
         val st1 = seq.next()
@@ -136,18 +133,20 @@ class YamlParserReflectTest {
         assertEquals("Porto", st2.address?.city)
         assertFalse { seq.hasNext() }
     }
-    @Test fun parseSequenceOfStudentsWithAddressesAndGrades() {
-        val seq = YamlParserReflect.yamlParser(Student::class)
+    @Test
+    fun parseSequenceOfStudentsWithAddressesAndGrades() {
+        val seq = YamlParserCojen.yamlParser(Student::class, 5)
             .parseList(yamlSequenceOfStudents.reader())
             .iterator()
         assertStudentsInSequence(seq)
     }
-    @Test fun parseClassroom() {
+    @Test
+    fun parseClassroom() {
         val yaml = """
           id: i45
           students: $yamlSequenceOfStudents
         """.trimIndent()
-        val cr = YamlParserReflect.yamlParser(Classroom::class)
+        val cr = YamlParserCojen.yamlParser(Classroom::class)
             .parseObject(yaml.reader())
         assertEquals("i45", cr.id)
         assertStudentsInSequence(cr.students.iterator())
@@ -189,40 +188,3 @@ class YamlParserReflectTest {
         assertFalse { seq.hasNext() }
     }
 }
-
-const val yamlSequenceOfStudents = """
-            -
-              name: Maria Candida
-              nr: 873435
-              address:
-                street: Rua Rosa
-                nr: 78
-                city: Lisbon
-              from: Oleiros
-              grades:
-                - 
-                  subject: LAE
-                  classification: 18
-                -
-                  subject: PDM
-                  classification: 15
-                -
-                  subject: PC
-                  classification: 19
-            - 
-              name: Jose Carioca
-              nr: 1214398
-              address:
-                street: Rua Azul
-                nr: 12
-                city: Porto
-              from: Tamega
-              grades:
-                -
-                  subject: TDS
-                  classification: 20
-                - 
-                  subject: LAE
-                  classification: 18
-        """
-
