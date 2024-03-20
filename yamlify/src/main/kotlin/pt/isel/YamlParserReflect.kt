@@ -8,7 +8,7 @@ import kotlin.reflect.KClass
 class YamlParserReflect<T : Any>(type: KClass<T>) : AbstractYamlParser<T>(type) {
     companion object {
         /**
-         *Iinternal cache of YamlParserReflect instances.
+         *Internal cache of YamlParserReflect instances.
          */
         private val yamlParsers: MutableMap<KClass<*>, YamlParserReflect<*>> = mutableMapOf()
         /**
@@ -25,7 +25,7 @@ class YamlParserReflect<T : Any>(type: KClass<T>) : AbstractYamlParser<T>(type) 
     override fun <T : Any> yamlParser(type: KClass<T>) = YamlParserReflect.yamlParser(type)
     /**
      * Creates a new instance of T through the first constructor
-     * that has all the arguments in the map.
+     * that has all the mandatory parameters in the map and optional parameters for the rest.
      */
     override fun newInstance(args: Map<String, Any>): T {
         TODO("Not yet implemented")
