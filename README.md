@@ -5,7 +5,7 @@ with both eager and lazy sequences processing.
 
 ## Assignments
 
-1. Published 20-3-2024 **DEADLINE: 06-4-2024**
+1. Published 20-3-2024 **DEADLINE:** ~06-4-2024~ **13-04-2024**
 1. Published 20-3-2024 **DEADLINE: 27-4-2024**
 1. Published 05-5-2024 **DEADLINE: 25-5-2024**
 
