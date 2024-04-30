@@ -2,6 +2,7 @@ package pt.isel
 
 import pt.isel.test.Classroom
 import pt.isel.test.Student
+import pt.isel.test.specificParsers.Student4ParserWithAddress
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFalse
@@ -19,6 +20,13 @@ class YamlParserCojenTest {
         assertEquals(873435, st.nr)
         assertEquals("Oleiros", st.from)
     }
+
+    @Test
+    fun test() {
+        Student4ParserWithAddress.saveYamlParserCogen()
+    }
+
+
     @Test
     fun parseStudentWithAddress() {
         val yaml = """
@@ -29,7 +37,9 @@ class YamlParserCojenTest {
                   nr: 78
                   city: Lisbon
                 from: Oleiros"""
-        val st = YamlParserCojen.yamlParser(Student::class, 4).parseObject(yaml.reader())
+        val st = Student4ParserWithAddress.yamlParserCogen().parseObject(yaml.reader())
+        //val st = Student4ParserWithAddress.yamlParserCogen().parseObject(yaml.reader())
+        //val st = YamlParserCojen.yamlParser(Student::class, 3).parseObject(yaml.reader())
         assertEquals("Maria Candida", st.name)
         assertEquals(873435, st.nr)
         assertEquals("Oleiros", st.from)
@@ -187,4 +197,6 @@ class YamlParserCojenTest {
         assertFalse { grades2.hasNext() }
         assertFalse { seq.hasNext() }
     }
+
+
 }

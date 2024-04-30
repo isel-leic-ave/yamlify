@@ -1,0 +1,216 @@
+Classfile /Users/luisfalcao/Library/CloudStorage/OneDrive-InstitutoSuperiordeEngenhariadeLisboa/ISEL/Disciplinas/2023_2024/2023-2024VerLAE/Repositories/yamlify/yamlify/build/classes/kotlin/test/pt/isel/test/specificParsers/StudentParserWith3Arguments.class
+  Last modified Apr 26, 2024; size 2174 bytes
+  SHA-256 checksum 2858fe535993a3cb97f06d022ba4728c275777aeb3f0729b21c492f0388a3c48
+  Compiled from "StudentParserWith3Arguments.kt"
+public final class pt.isel.test.specificParsers.StudentParserWith3Arguments extends pt.isel.YamlParserCojen<pt.isel.test.Student>
+  minor version: 0
+  major version: 65
+  flags: (0x0031) ACC_PUBLIC, ACC_FINAL, ACC_SUPER
+  this_class: #2                          // pt/isel/test/specificParsers/StudentParserWith3Arguments
+  super_class: #5                         // pt/isel/YamlParserCojen
+  interfaces: 0, fields: 0, methods: 3, attributes: 3
+Constant pool:
+   #1 = Utf8               pt/isel/test/specificParsers/StudentParserWith3Arguments
+   #2 = Class              #1             // pt/isel/test/specificParsers/StudentParserWith3Arguments
+   #3 = Utf8               Lpt/isel/YamlParserCojen<Lpt/isel/test/Student;>;
+   #4 = Utf8               pt/isel/YamlParserCojen
+   #5 = Class              #4             // pt/isel/YamlParserCojen
+   #6 = Utf8               <init>
+   #7 = Utf8               ()V
+   #8 = Utf8               pt/isel/test/Student
+   #9 = Class              #8             // pt/isel/test/Student
+  #10 = Utf8               kotlin/jvm/internal/Reflection
+  #11 = Class              #10            // kotlin/jvm/internal/Reflection
+  #12 = Utf8               getOrCreateKotlinClass
+  #13 = Utf8               (Ljava/lang/Class;)Lkotlin/reflect/KClass;
+  #14 = NameAndType        #12:#13        // getOrCreateKotlinClass:(Ljava/lang/Class;)Lkotlin/reflect/KClass;
+  #15 = Methodref          #11.#14        // kotlin/jvm/internal/Reflection.getOrCreateKotlinClass:(Ljava/lang/Class;)Lkotlin/reflect/KClass;
+  #16 = Utf8               (Lkotlin/reflect/KClass;I)V
+  #17 = NameAndType        #6:#16         // "<init>":(Lkotlin/reflect/KClass;I)V
+  #18 = Methodref          #5.#17         // pt/isel/YamlParserCojen."<init>":(Lkotlin/reflect/KClass;I)V
+  #19 = Utf8               this
+  #20 = Utf8               Lpt/isel/test/specificParsers/StudentParserWith3Arguments;
+  #21 = Utf8               newInstance
+  #22 = Utf8               (Ljava/util/Map;)Lpt/isel/test/Student;
+  #23 = Utf8               (Ljava/util/Map<Ljava/lang/String;+Ljava/lang/Object;>;)Lpt/isel/test/Student;
+  #24 = Utf8               args
+  #25 = Utf8               Lorg/jetbrains/annotations/NotNull;
+  #26 = String             #24            // args
+  #27 = Utf8               kotlin/jvm/internal/Intrinsics
+  #28 = Class              #27            // kotlin/jvm/internal/Intrinsics
+  #29 = Utf8               checkNotNullParameter
+  #30 = Utf8               (Ljava/lang/Object;Ljava/lang/String;)V
+  #31 = NameAndType        #29:#30        // checkNotNullParameter:(Ljava/lang/Object;Ljava/lang/String;)V
+  #32 = Methodref          #28.#31        // kotlin/jvm/internal/Intrinsics.checkNotNullParameter:(Ljava/lang/Object;Ljava/lang/String;)V
+  #33 = Utf8               name
+  #34 = String             #33            // name
+  #35 = Utf8               java/util/Map
+  #36 = Class              #35            // java/util/Map
+  #37 = Utf8               get
+  #38 = Utf8               (Ljava/lang/Object;)Ljava/lang/Object;
+  #39 = NameAndType        #37:#38        // get:(Ljava/lang/Object;)Ljava/lang/Object;
+  #40 = InterfaceMethodref #36.#39        // java/util/Map.get:(Ljava/lang/Object;)Ljava/lang/Object;
+  #41 = Utf8               null cannot be cast to non-null type kotlin.String
+  #42 = String             #41            // null cannot be cast to non-null type kotlin.String
+  #43 = Utf8               checkNotNull
+  #44 = NameAndType        #43:#30        // checkNotNull:(Ljava/lang/Object;Ljava/lang/String;)V
+  #45 = Methodref          #28.#44        // kotlin/jvm/internal/Intrinsics.checkNotNull:(Ljava/lang/Object;Ljava/lang/String;)V
+  #46 = Utf8               java/lang/String
+  #47 = Class              #46            // java/lang/String
+  #48 = Utf8               nr
+  #49 = String             #48            // nr
+  #50 = Utf8               java/lang/Integer
+  #51 = Class              #50            // java/lang/Integer
+  #52 = Utf8               parseInt
+  #53 = Utf8               (Ljava/lang/String;)I
+  #54 = NameAndType        #52:#53        // parseInt:(Ljava/lang/String;)I
+  #55 = Methodref          #51.#54        // java/lang/Integer.parseInt:(Ljava/lang/String;)I
+  #56 = Utf8               from
+  #57 = String             #56            // from
+  #58 = Utf8               (Ljava/lang/String;ILjava/lang/String;Lpt/isel/test/Address;Ljava/util/List;Ljava/time/LocalDate;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+  #59 = NameAndType        #6:#58         // "<init>":(Ljava/lang/String;ILjava/lang/String;Lpt/isel/test/Address;Ljava/util/List;Ljava/time/LocalDate;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+  #60 = Methodref          #9.#59         // pt/isel/test/Student."<init>":(Ljava/lang/String;ILjava/lang/String;Lpt/isel/test/Address;Ljava/util/List;Ljava/time/LocalDate;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+  #61 = Utf8               Ljava/lang/String;
+  #62 = Utf8               I
+  #63 = Utf8               Ljava/util/Map;
+  #64 = Utf8               (Ljava/util/Map;)Ljava/lang/Object;
+  #65 = NameAndType        #21:#22        // newInstance:(Ljava/util/Map;)Lpt/isel/test/Student;
+  #66 = Methodref          #2.#65         // pt/isel/test/specificParsers/StudentParserWith3Arguments.newInstance:(Ljava/util/Map;)Lpt/isel/test/Student;
+  #67 = Utf8               Lkotlin/Metadata;
+  #68 = Utf8               mv
+  #69 = Integer            1
+  #70 = Integer            9
+  #71 = Integer            0
+  #72 = Utf8               k
+  #73 = Utf8               xi
+  #74 = Integer            48
+  #75 = Utf8               d1
+  #76 = Utf8               \u0000\u001e\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010$\n\u0002\u0010\u000e\n\u0002\u0010\u0000\n\u0000\u0018\u00002\b\u0012\u0004\u0012\u00020\u00020\u0001B\u0005¢\u0006\u0002\u0010\u0003J\u001c\u0010\u0004\u001a\u00020\u00022\u0012\u0010\u0005\u001a\u000e\u0012\u0004\u0012\u00020\u0007\u0012\u0004\u0012\u00020\b0\u0006H\u0016¨\u0006\t
+  #77 = Utf8               d2
+  #78 = Utf8               Lpt/isel/YamlParserCojen;
+  #79 = Utf8               Lpt/isel/test/Student;
+  #80 = Utf8
+  #81 = Utf8               yamlify_test
+  #82 = Utf8               StudentParserWith3Arguments.kt
+  #83 = Utf8               Code
+  #84 = Utf8               LineNumberTable
+  #85 = Utf8               LocalVariableTable
+  #86 = Utf8               Signature
+  #87 = Utf8               RuntimeInvisibleAnnotations
+  #88 = Utf8               RuntimeInvisibleParameterAnnotations
+  #89 = Utf8               MethodParameters
+  #90 = Utf8               SourceFile
+  #91 = Utf8               RuntimeVisibleAnnotations
+{
+  public pt.isel.test.specificParsers.StudentParserWith3Arguments();
+    descriptor: ()V
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=3, locals=1, args_size=1
+         0: aload_0
+         6: iconst_3
+         7: invokespecial #18                 // Method pt/isel/YamlParserCojen."<init>":(Lkotlin/reflect/KClass;I)V
+        10: return
+      LineNumberTable:
+        line 6: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      11     0  this   Lpt/isel/test/specificParsers/StudentParserWith3Arguments;
+
+  public pt.isel.test.Student newInstance(java.util.Map<java.lang.String, ? extends java.lang.Object>);
+    descriptor: (Ljava/util/Map;)Lpt/isel/test/Student;
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=10, locals=5, args_size=2
+         0: aload_1
+         1: ldc           #26                 // String args
+         3: invokestatic  #32                 // Method kotlin/jvm/internal/Intrinsics.checkNotNullParameter:(Ljava/lang/Object;Ljava/lang/String;)V
+         6: aload_1
+         7: ldc           #34                 // String name
+         9: invokeinterface #40,  2           // InterfaceMethod java/util/Map.get:(Ljava/lang/Object;)Ljava/lang/Object;
+        14: dup
+        15: ldc           #42                 // String null cannot be cast to non-null type kotlin.String
+        17: invokestatic  #45                 // Method kotlin/jvm/internal/Intrinsics.checkNotNull:(Ljava/lang/Object;Ljava/lang/String;)V
+        20: checkcast     #47                 // class java/lang/String
+        23: astore_2
+        24: aload_1
+        25: ldc           #49                 // String nr
+        27: invokeinterface #40,  2           // InterfaceMethod java/util/Map.get:(Ljava/lang/Object;)Ljava/lang/Object;
+        32: dup
+        33: ldc           #42                 // String null cannot be cast to non-null type kotlin.String
+        35: invokestatic  #45                 // Method kotlin/jvm/internal/Intrinsics.checkNotNull:(Ljava/lang/Object;Ljava/lang/String;)V
+        38: checkcast     #47                 // class java/lang/String
+        41: invokestatic  #55                 // Method java/lang/Integer.parseInt:(Ljava/lang/String;)I
+        44: istore_3
+        45: aload_1
+        46: ldc           #57                 // String from
+        48: invokeinterface #40,  2           // InterfaceMethod java/util/Map.get:(Ljava/lang/Object;)Ljava/lang/Object;
+        53: dup
+        54: ldc           #42                 // String null cannot be cast to non-null type kotlin.String
+        56: invokestatic  #45                 // Method kotlin/jvm/internal/Intrinsics.checkNotNull:(Ljava/lang/Object;Ljava/lang/String;)V
+        59: checkcast     #47                 // class java/lang/String
+        62: astore        4
+        64: new           #9                  // class pt/isel/test/Student
+        67: dup
+        68: aload_2
+        69: iload_3
+        70: aload         4
+        72: aconst_null
+        73: aconst_null
+        74: aconst_null
+        75: bipush        56
+        77: aconst_null
+        78: invokespecial #60                 // Method pt/isel/test/Student."<init>":(Ljava/lang/String;ILjava/lang/String;Lpt/isel/test/Address;Ljava/util/List;Ljava/time/LocalDate;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+        81: areturn
+      LineNumberTable:
+        line 8: 6
+        line 9: 24
+        line 9: 44
+        line 10: 45
+        line 12: 64
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+           24      58     2  name   Ljava/lang/String;
+           45      37     3    nr   I
+           64      18     4  from   Ljava/lang/String;
+            0      82     0  this   Lpt/isel/test/specificParsers/StudentParserWith3Arguments;
+            0      82     1  args   Ljava/util/Map;
+    Signature: #23                          // (Ljava/util/Map<Ljava/lang/String;+Ljava/lang/Object;>;)Lpt/isel/test/Student;
+    RuntimeInvisibleAnnotations:
+      0: #25()
+        org.jetbrains.annotations.NotNull
+    RuntimeInvisibleParameterAnnotations:
+      parameter 0:
+        0: #25()
+          org.jetbrains.annotations.NotNull
+    MethodParameters:
+      Name                           Flags
+      args
+
+  public java.lang.Object newInstance(java.util.Map);
+    descriptor: (Ljava/util/Map;)Ljava/lang/Object;
+    flags: (0x1041) ACC_PUBLIC, ACC_BRIDGE, ACC_SYNTHETIC
+    Code:
+      stack=2, locals=2, args_size=2
+         0: aload_0
+         1: aload_1
+         2: invokevirtual #66                 // Method newInstance:(Ljava/util/Map;)Lpt/isel/test/Student;
+         5: areturn
+      LineNumberTable:
+        line 6: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       6     0  this   Lpt/isel/test/specificParsers/StudentParserWith3Arguments;
+            0       6     1  args   Ljava/util/Map;
+}
+Signature: #3                           // Lpt/isel/YamlParserCojen<Lpt/isel/test/Student;>;
+SourceFile: "StudentParserWith3Arguments.kt"
+RuntimeVisibleAnnotations:
+  0: #67(#68=[I#69,I#70,I#71],#72=I#69,#73=I#74,#75=[s#76],#77=[s#20,s#78,s#79,s#7,s#21,s#24,s#80,s#80,s#80,s#81])
+    kotlin.Metadata(
+      mv=[1,9,0]
+      k=1
+      xi=48
+      d1=["\u0000\u001e\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010$\n\u0002\u0010\u000e\n\u0002\u0010\u0000\n\u0000\u0018\u00002\b\u0012\u0004\u0012\u00020\u00020\u0001B\u0005¢\u0006\u0002\u0010\u0003J\u001c\u0010\u0004\u001a\u00020\u00022\u0012\u0010\u0005\u001a\u000e\u0012\u0004\u0012\u00020\u0007\u0012\u0004\u0012\u00020\b0\u0006H\u0016¨\u0006\t"]
+      d2=["Lpt/isel/test/specificParsers/StudentParserWith3Arguments;","Lpt/isel/YamlParserCojen;","Lpt/isel/test/Student;","()V","newInstance","args","","","","yamlify_test"]
+    )

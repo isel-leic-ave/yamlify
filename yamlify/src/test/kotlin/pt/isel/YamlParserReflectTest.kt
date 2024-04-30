@@ -1,8 +1,11 @@
 package pt.isel
 
 import org.junit.jupiter.api.assertThrows
+import pt.isel.test.Address
 import pt.isel.test.Classroom
 import pt.isel.test.Student
+import kotlin.reflect.full.findAnnotation
+import kotlin.reflect.full.memberProperties
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFalse
@@ -22,7 +25,8 @@ class YamlParserReflectTest {
                 name: Maria Candida
                 nr: 873435
                 from: Oleiros"""
-        val st = YamlParserReflect.yamlParser(Student::class).parseObject(yaml.reader())
+        val st = YamlParserReflect.yamlParser(Student::class)
+                    .parseObject(yaml.reader())
         assertEquals("Maria Candida", st.name)
         assertEquals(873435, st.nr)
         assertEquals("Oleiros", st.from)
@@ -188,12 +192,26 @@ class YamlParserReflectTest {
         assertFalse { grades2.hasNext() }
         assertFalse { seq.hasNext() }
     }
+
+    @Test
+    fun testAnnotations() {
+        Address::class
+//            .primaryConstructor!!
+//            .parameters
+            .memberProperties
+            .forEach {
+                val yamlArg: YamlArg? = it.findAnnotation<YamlArg>()
+                val message: String = if(yamlArg != null) "one anotation" else "NO annotatiopn"
+                println("parameter ${it.name} has ${message}")
+            }
+    }
 }
 
 const val yamlSequenceOfStudents = """
             -
               name: Maria Candida
               nr: 873435
+              birthDate: 2004-05-26
               address:
                 street: Rua Rosa
                 nr: 78

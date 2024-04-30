@@ -1,0 +1,111 @@
+Classfile /Users/luisfalcao/Library/CloudStorage/OneDrive-InstitutoSuperiordeEngenhariadeLisboa/ISEL/Disciplinas/2023_2024/2023-2024VerLAE/Repositories/yamlify/yamlify/Student4ParserWithAddressGen.class
+  Last modified Apr 26, 2024; size 777 bytes
+  SHA-256 checksum 45b0ed20808d6976cc69a10281dabbcd5c5574537d2803e811d2d79a15ccb8bf
+public class Student4ParserWithAddress-1 extends pt.isel.YamlParserCojen
+  minor version: 0
+  major version: 61
+  flags: (0x0001) ACC_PUBLIC
+  this_class: #2                          // "Student4ParserWithAddress-1"
+  super_class: #4                         // pt/isel/YamlParserCojen
+  interfaces: 0, fields: 0, methods: 2, attributes: 0
+Constant pool:
+   #1 = Utf8               Student4ParserWithAddress-1
+   #2 = Class              #1             // "Student4ParserWithAddress-1"
+   #3 = Utf8               pt/isel/YamlParserCojen
+   #4 = Class              #3             // pt/isel/YamlParserCojen
+   #5 = Utf8               <init>
+   #6 = Utf8               ()V
+   #7 = Utf8               (Ljava/lang/Class;I)V
+   #8 = NameAndType        #5:#7          // "<init>":(Ljava/lang/Class;I)V
+   #9 = Methodref          #4.#8          // pt/isel/YamlParserCojen."<init>":(Ljava/lang/Class;I)V
+  #10 = Utf8               newInstance
+  #11 = Utf8               (Ljava/util/Map;)Lpt/isel/test/Student;
+  #12 = Utf8               java/util/Map
+  #13 = Class              #12            // java/util/Map
+  #14 = Utf8               get
+  #15 = Utf8               (Ljava/lang/Object;)Ljava/lang/Object;
+  #16 = NameAndType        #14:#15        // get:(Ljava/lang/Object;)Ljava/lang/Object;
+  #17 = InterfaceMethodref #13.#16        // java/util/Map.get:(Ljava/lang/Object;)Ljava/lang/Object;
+  #18 = Utf8               java/lang/String
+  #19 = Class              #18            // java/lang/String
+  #20 = Utf8               java/lang/Integer
+  #21 = Class              #20            // java/lang/Integer
+  #22 = Utf8               parseInt
+  #23 = Utf8               (Ljava/lang/String;)I
+  #24 = NameAndType        #22:#23        // parseInt:(Ljava/lang/String;)I
+  #25 = Methodref          #21.#24        // java/lang/Integer.parseInt:(Ljava/lang/String;)I
+  #26 = Utf8               pt/isel/test/specificParsers/AddressYamlParser
+  #27 = Class              #26            // pt/isel/test/specificParsers/AddressYamlParser
+  #28 = NameAndType        #5:#6          // "<init>":()V
+  #29 = Methodref          #27.#28        // pt/isel/test/specificParsers/AddressYamlParser."<init>":()V
+  #30 = Utf8               (Ljava/util/Map;)Lpt/isel/test/Address;
+  #31 = NameAndType        #10:#30        // newInstance:(Ljava/util/Map;)Lpt/isel/test/Address;
+  #32 = Methodref          #27.#31        // pt/isel/test/specificParsers/AddressYamlParser.newInstance:(Ljava/util/Map;)Lpt/isel/test/Address;
+  #33 = Utf8               pt/isel/test/Student
+  #34 = Class              #33            // pt/isel/test/Student
+  #35 = Utf8               (Ljava/lang/String;ILjava/lang/String;Lpt/isel/test/Address;)V
+  #36 = NameAndType        #5:#35         // "<init>":(Ljava/lang/String;ILjava/lang/String;Lpt/isel/test/Address;)V
+  #37 = Methodref          #34.#36        // pt/isel/test/Student."<init>":(Ljava/lang/String;ILjava/lang/String;Lpt/isel/test/Address;)V
+  #38 = Utf8               StackMapTable
+  #39 = Utf8               Code
+  #40 = Utf8               name
+  #41 = String             #40            // name
+  #42 = Utf8               nr
+  #43 = String             #42            // nr
+  #44 = Utf8               from
+  #45 = String             #44            // from
+  #46 = Utf8               address
+  #47 = String             #46            // address
+{
+  public Student4ParserWithAddress-1();
+    descriptor: ()V
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=3, locals=1, args_size=1
+         0: aload_0
+         1: ldc           #34                 // class pt/isel/test/Student
+         3: iconst_3
+         4: invokespecial #9                  // Method pt/isel/YamlParserCojen."<init>":(Ljava/lang/Class;I)V
+         7: return
+
+  public pt.isel.test.Student newInstance(java.util.Map);
+    descriptor: (Ljava/util/Map;)Lpt/isel/test/Student;
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=6, locals=7, args_size=2
+         0: aload_1
+         1: ldc           #41                 // String name
+         3: invokeinterface #17,  2           // InterfaceMethod java/util/Map.get:(Ljava/lang/Object;)Ljava/lang/Object;
+         8: checkcast     #19                 // class java/lang/String
+        11: astore_2
+        12: aload_1
+        13: ldc           #43                 // String nr
+        15: invokeinterface #17,  2           // InterfaceMethod java/util/Map.get:(Ljava/lang/Object;)Ljava/lang/Object;
+        20: checkcast     #19                 // class java/lang/String
+        23: invokestatic  #25                 // Method java/lang/Integer.parseInt:(Ljava/lang/String;)I
+        26: istore_3
+        27: aload_1
+        28: ldc           #45                 // String from
+        30: invokeinterface #17,  2           // InterfaceMethod java/util/Map.get:(Ljava/lang/Object;)Ljava/lang/Object;
+        35: checkcast     #19                 // class java/lang/String
+        38: astore        4
+        40: aload_1
+        41: ldc           #47                 // String address
+        43: invokeinterface #17,  2           // InterfaceMethod java/util/Map.get:(Ljava/lang/Object;)Ljava/lang/Object;
+        48: checkcast     #13                 // class java/util/Map
+        51: astore        5
+        53: new           #27                 // class pt/isel/test/specificParsers/AddressYamlParser
+        56: dup
+        57: invokespecial #29                 // Method pt/isel/test/specificParsers/AddressYamlParser."<init>":()V
+        60: aload         5
+        62: invokevirtual #32                 // Method pt/isel/test/specificParsers/AddressYamlParser.newInstance:(Ljava/util/Map;)Lpt/isel/test/Address;
+        65: astore        6
+        67: new           #34                 // class pt/isel/test/Student
+        70: dup
+        71: aload_2
+        72: iload_3
+        73: aload         4
+        75: aload         6
+        77: invokespecial #37                 // Method pt/isel/test/Student."<init>":(Ljava/lang/String;ILjava/lang/String;Lpt/isel/test/Address;)V
+        80: areturn
+}
