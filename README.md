@@ -130,23 +130,27 @@ constructor used in the instantiation of the domain class.
 ### 3.1
 
 Implement a new method `parseSequence(yaml: Reader): Sequence<T>` that returns
-a lazy sequence for the YAML list read from the `yaml` `Reader` parameter.
-Throw an exception if the `yaml` `Reader` does not fetch a representation of a
-sequence.
+a **lazy sequence** for the YAML list read from the `yaml` `Reader` parameter.
+Throw an exception if the `yaml` `Reader` does not contain a representation of a
+list that should be transformed to a (**lazy**) sequence.
 
-Requirements: 
+Requirements:
 * The `parseSequence` method should be called **solely for parsing the root
-element** of the YAML, while nested elements should still be handled as
-_mappings_ (i.e. objects) or _sequences_ parsed through the `parseList()`
-method.
+elements** of the YAML, whereas
+ nested elements should still be handled as
+_mappings_ (i.e. objects) or _sequences_ parsed through the `parseObject()` and
+ `parseList()` methods, respectively.
 * The `parseSequence` method should be implemented in `AbstractYamlParser` and
-  available to both subclasses `YamlParserReflect` and `YamlParserCojen`.
+ available to both subclasses `YamlParserReflect` and `YamlParserCojen`.
 
-Implement a unit test that verifies the lazy behavior of the `parseSequence`
-method. Take advantage of the `@YamlConvert` annotation to associate a function
-that allows checking the moment when the elements of the sequence are produced.
+Implement unit tests that verify the lazy behavior of the `parseSequence`
+method.
 
-You should test and verify the correct behavior for both `YamlParserReflect` and `YamlParserCojen`.
+Use the `@YamlConvert` annotation to associate a function
+that checks the moment when the elements of the sequence are produced.
+
+You should test and verify the correct behavior for both `YamlParserReflect` and
+`YamlParserCojen`.
 
 ## 3.2
 
