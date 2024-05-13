@@ -149,8 +149,8 @@ method.
 Use the `@YamlConvert` annotation to associate a function
 that checks the moment when the elements of the sequence are produced.
 
-You should test and verify the correct behavior for both `YamlParserReflect` and
-`YamlParserCojen`.
+**You should test and verify the correct behavior for both `YamlParserReflect` and
+`YamlParserCojen`.**
 
 ## 3.2
 
@@ -166,3 +166,6 @@ whether the lazy or eager approach is used.
 
 Assume that all files have YAML representations of objects of the same type.
 Throw an exception if the YAML object is incompatible with `T`.
+
+**You should test and verify the correct behavior for both `YamlParserReflect` and
+`YamlParserCojen`.**
